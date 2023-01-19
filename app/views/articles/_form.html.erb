@@ -1,21 +1,25 @@
-<%= form_with model: article do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    <% article.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
+<%= form_with model: article, html: { class: "article-form" } do |form| %>
+  <div class="form-set">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "article-title" %>
+    <% if article.errors.full_messages_for(:title).any? %>
+      <div class="errors">
+        You must include a title.
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-set">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+    <% if article.errors.full_messages_for(:body).any? %>
+      <div class="errors">
+        You must include an article body.
+      </div>
     <% end %>
   </div>
 
   <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %><br>
-    <% article.errors.full_messages_for(:body).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-large btn-success" %>
   </div>
 <% end %>

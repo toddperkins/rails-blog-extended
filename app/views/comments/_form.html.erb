@@ -1,13 +1,24 @@
-<%= form_with model: [ @article, @article.comments.build ] do |form| %>
-  <p>
+<%= form_with model: [ @article, @article.comments.build ], html: { class: "comment-form" } do |form| %>
+  <div class="form-set">
     <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
-  </p>
-  <p>
+    <%= form.text_field :commenter, class: "commenter" %>
+    <% if @comment.errors.messages_for(:commenter).any? %>
+      <div class="errors">
+        You must include a commenter.
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-set">
     <%= form.label :body %><br>
     <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
+    <% if @comment.errors.messages_for(:body).any? %>
+      <div class="errors">
+        You must include a comment.
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.submit class: "btn btn-large btn-success" %>
+  </div>
 <% end %>

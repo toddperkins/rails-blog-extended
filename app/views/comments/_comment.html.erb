@@ -1,9 +1,13 @@
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
-</p>
+<div class="comment">
+  
+  <p>
+    <strong>Posted by:</strong>
+    <%= comment.commenter %>
+  </p>
 
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
+  <p><%= comment.body %></p>
+  <%= link_to "Delete", article_comment_path(comment.article.id, comment.id), data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+              }, class: "btn btn-danger" %>
+</div>

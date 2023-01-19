@@ -1,17 +1,21 @@
-<h1><%= @article.title %></h1>
+<div class="row">
+  <h1><%= @article.title %></h1>
 
-<p><%= @article.body %></p>
+  <p><%= @article.body %></p>
+  
+  <ul class="articles modify-post-links">
+    <li><%= link_to "Edit", edit_article_path(@article), class: "btn btn-secondary btn-large" %></li>
+    <li><%= link_to "Delete", article_path(@article), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    }, class: "btn btn-danger btn-secondary btn-large" %></li>
+  </ul>
 
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy", article_path(@article), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
-</ul>
+  <% if @article.comments.any? %>
+    <h2>Comments</h2>
+    <%= render @article.comments %>
+  <% end %>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
-
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+  <h2>Add a comment:</h2>
+  <%= render 'comments/form' %>
+</div>

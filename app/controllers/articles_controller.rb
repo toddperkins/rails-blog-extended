@@ -6,6 +6,12 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @comment = Comment.new
+
+    if session[:comment_errors]
+      session[:comment_errors].each {|error, error_message| @comment.errors.add error, error_message}
+      session.delete :comment_errors
+    end
   end
 
   def new
