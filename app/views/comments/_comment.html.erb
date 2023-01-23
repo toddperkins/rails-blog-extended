@@ -6,7 +6,7 @@
   </p>
 
   <p><%= comment.body %></p>
-  <%= link_to "Delete", article_comment_path(comment.article.id, comment.id), data: {
+  <%= link_to "Delete", article_comment_path(comment.article.id, comment), data: {
                 turbo_method: :delete,
                 turbo_confirm: "Are you sure?"
               }, class: "btn btn-danger" %>
