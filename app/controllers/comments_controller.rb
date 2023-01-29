@@ -7,10 +7,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to article_path(@article)
     else
-      if @comment.errors.any?
-        session[:comment_errors] = @comment.errors
-      end
-      redirect_to article_path(@article)
+      render 'articles/show', status: :unprocessable_entity
     end
   end
 

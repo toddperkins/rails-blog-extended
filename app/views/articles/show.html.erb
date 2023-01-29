@@ -13,6 +13,8 @@
 
   <% if @article.comments.any? %>
     <h2>Comments</h2>
+    <%# debug @comments %>
+
     <%= render @article.comments %>
   <% end %>
 

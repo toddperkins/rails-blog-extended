@@ -1,8 +1,8 @@
 <%= form_with model: [ @article, @comment ], html: { class: "comment-form" } do |form| %>
   <div class="form-set">
-    <%= form.label :commenter %><br>
+    <%= form.label :commenter %>
     <%= form.text_field :commenter, class: "commenter" %>
-    <% if @comment.errors.messages_for(:commenter).any? %>
+    <% if @comment.errors.full_messages_for(:commenter).any? %>
       <div class="errors">
         You must include a commenter.
       </div>
@@ -10,14 +10,15 @@
   </div>
 
   <div class="form-set">
-    <%= form.label :body %><br>
+    <%= form.label :body %>
     <%= form.text_area :body %>
-    <% if @comment.errors.messages_for(:body).any? %>
+    <% if @comment.errors.full_messages_for(:body).any? %>
       <div class="errors">
-        You must include a comment.
+        You must include a body that is more than 10 characters long.
       </div>
     <% end %>
   </div>
+
   <div>
     <%= form.submit class: "btn btn-large btn-success" %>
   </div>
