@@ -50,6 +50,11 @@ p {
     border-radius: 6px;
     resize: none;
   }
+  .field_with_errors {
+    input, textarea {
+      border-color: red;
+    }
+  }
   .btn {
     border: 0;
     margin-bottom: 25px;

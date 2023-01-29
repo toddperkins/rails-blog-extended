@@ -7,8 +7,6 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @comment = Comment.new
-    # needs to be specific to article id...
-    @comments = Comment.all
   end
 
   def new
