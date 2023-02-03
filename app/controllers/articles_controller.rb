@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   
+  around_action :record_not_found
+
   def index
     @articles = Article.all
   end
@@ -48,6 +50,13 @@ class ArticlesController < ApplicationController
     
   def article_params
     params.require(:article).permit(:title, :body)
+  end
+
+  # catch no record errors and redirect
+  def record_not_found
+    yield
+  rescue ActiveRecord::RecordNotFound
+    redirect_to articles_path
   end
 
 end
