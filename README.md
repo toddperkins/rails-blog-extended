@@ -1,24 +1,16 @@
-# README
+# Rails blog tutorial extended
+The default rails blog tutorial was missing some things and felt like it wasn't really rounded off to well so I extended on the tutorial.
+* Added ability to delete comments
+* Seed database
+* Rspec testing
+* Styled with bootstrap
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
+Clone this repo down to your computer and cd into that directory and run the following shell commands:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+$> rails db:create
+$> rails db:migrate
+$> rails db:seed
+$> rails server
+```
