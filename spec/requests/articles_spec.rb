@@ -5,7 +5,6 @@ RSpec.describe ArticlesController, type: :request do
   # index  
   describe "GET #index" do
     it "assigns @articles" do
-      article = Article.create
       get articles_path
       expect(assigns(:articles)).to eq(Article.all)
     end
@@ -34,7 +33,7 @@ RSpec.describe ArticlesController, type: :request do
     context "when params are correct" do
       let(:params) {{ article: {title: 'My Title', body: 'This is my sample body that is valid.'} }}
 
-      it 'is expected to create new user successfully' do
+      it 'is expected to create new article successfully' do
         post articles_path, params: params
         expect(assigns[:article]).to be_instance_of(Article)
       end
