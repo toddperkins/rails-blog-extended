@@ -6,7 +6,12 @@ The default rails blog tutorial was missing some things and felt like it wasn't 
 * Styled with bootstrap
 
 ## Installation
-Clone this repo down to your computer and cd into that directory and run the following shell commands:
+
+Clone this repo down to your computer and cd into that directory.
+
+Modify the database.rb file to use your database adapter and credentials.
+
+Run the following shell commands:
 
 ```
 $> rails db:create
