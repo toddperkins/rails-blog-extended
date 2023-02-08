@@ -1,4 +1,9 @@
 <div class="row">
+
+  <% if @article.article_image.image? %>
+    <div class="article-image" style="background: url(<%= polymorphic_url(@article.article_image.variant(resize_to_limit: [700, nil])) %>) no-repeat 50% 50%;"></div>
+  <% end %>
+
   <h1><%= @article.title %></h1>
 
   <p><%= @article.body %></p>
@@ -13,8 +18,6 @@
 
   <% if @article.comments.any? %>
     <h2>Comments</h2>
-    <%# debug @comments %>
-
     <%= render @article.comments %>
   <% end %>
 

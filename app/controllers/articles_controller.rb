@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
   private
     
   def article_params
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :body, :article_image)
   end
 
   # catch no record errors and redirect
